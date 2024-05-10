@@ -61,7 +61,7 @@ export default function Header() {
 const HeaderContainer = styled.header<{ showCategories: boolean }>`
   width: 100%;
   height: 70px;
-  background-color: red;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
