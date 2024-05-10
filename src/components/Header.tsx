@@ -86,7 +86,6 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
       height: 1.5rem;
       @media screen and (min-width: 700px) {
         visibility: hidden;
-        transition: visibility 0.3ms ease-in;
       }
     }
   }
@@ -143,8 +142,15 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
       transition: visibility 1s ease;
       transition: gap, color, font-size, font-weight 2s ease;
     }
-    li {
+    @media screen and (min-width: 1200px) {
+      padding-left: 30rem;
+      transition: padding-left 1s ease;
+    }
+    li:hover {
+      color: #ff7e1b;
+      font-weight: 800;
       @media screen and (min-width: 700px) {
+        color: #000;
       }
     }
   }
