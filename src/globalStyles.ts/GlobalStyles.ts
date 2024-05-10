@@ -12,6 +12,11 @@ html{
 body{
     font-family: "Kumbh Sans", sans-serif ;
     background: #FFF;
+  
+  
+}
+li{
+    list-style: none;
 }
 button{
     font-family: "Kumbh Sans", sans-serif ;   
