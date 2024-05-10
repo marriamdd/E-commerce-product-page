@@ -7,7 +7,6 @@ export default function Header() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 700) {
-        console.log("meti 700");
         setShowCategories(false);
       }
     };

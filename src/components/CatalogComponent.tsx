@@ -8,7 +8,7 @@ export default function CatalogComponent() {
     "/images/image-product-4.jpg",
   ];
   const [imageIndex, setImageIndex] = useState(0);
-  console.log(imageIndex);
+
   return (
     <CatalogContainer>
       <div className="swipeImagesDIv">
