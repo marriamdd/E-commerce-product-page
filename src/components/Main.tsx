@@ -4,9 +4,11 @@ import ContentContainer from "./ContentContainer";
 import { useContext } from "react";
 import { SomeContext } from "../App";
 import CartComponent from "./CartComponent";
+import ZoomImage from "./ZoomImage";
 
 export default function Main() {
-  const { showCart, setShowCart } = useContext(SomeContext);
+  const { showCart, setShowCart, showZoom } = useContext(SomeContext);
+  console.log(showCart);
   return (
     <MainComponent
       onClick={(e) => {
@@ -16,6 +18,7 @@ export default function Main() {
         }
       }}
     >
+      {showZoom && <ZoomImage />}
       {showCart && <CartComponent />}
       <CatalogComponent />
       <ContentContainer />
@@ -31,8 +34,9 @@ const MainComponent = styled.main`
   flex-direction: column;
   align-items: center;
   @media screen and (min-width: 1000px) {
+    margin-top: 13rem;
     flex-direction: row;
     justify-content: center;
-    gap: 7rem;
+    gap: 20rem;
   }
 `;

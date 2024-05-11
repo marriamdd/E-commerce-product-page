@@ -107,7 +107,7 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
     }
   }
   @media screen and (min-width: 750px) {
-    padding-inline: 5rem;
+    padding-inline: 10rem;
     transition: padding-inline 2s ease;
   }
   .logoDiv {
@@ -175,9 +175,9 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
       flex-direction: row;
       justify-content: start;
       align-items: center;
-      gap: 3rem;
+      gap: 1rem;
       visibility: visible;
-      padding-left: 20rem;
+      padding-left: 25rem;
       color: #69707d;
 
       font-size: 1.5rem;
@@ -188,7 +188,8 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
       transition: gap, color, font-size, font-weight 2s ease;
     }
     @media screen and (min-width: 1200px) {
-      padding-left: 30rem;
+      gap: 3rem;
+      padding-left: 35rem;
       transition: padding-left 1s ease;
     }
     li:hover {

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
+import { SomeContext } from "../App";
 
 export default function CatalogComponent() {
   const bigImagesArray = [
@@ -16,13 +17,22 @@ export default function CatalogComponent() {
     "/images/image-product-4-thumbnail.jpg",
   ];
   const [imageIndex, setImageIndex] = useState(0);
-
+  const { setShowZoom, showZoom } = useContext(SomeContext);
   return (
     <CatalogContainer>
       <div className="swipeImagesDIv">
         {bigImagesArray.map((item, index) => {
           if (index === imageIndex) {
-            return <img key={index} src={item} alt="product" />;
+            return (
+              <img
+                onClick={() => {
+                  setShowZoom(!showZoom);
+                }}
+                key={index}
+                src={item}
+                alt="product"
+              />
+            );
           }
           return null;
         })}
