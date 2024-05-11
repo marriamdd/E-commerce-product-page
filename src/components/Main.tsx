@@ -48,6 +48,6 @@ const MainComponent = styled.main`
     margin-top: 13rem;
     flex-direction: row;
     justify-content: center;
-    gap: 20rem;
+    gap: 19rem;
   }
 `;
