@@ -25,7 +25,7 @@ export default function ContentContainer() {
         <span className="prevPrice">$250.00</span>
       </div>
       <ChooseQuantity>
-        <div>
+        <div className="chooseQuantity">
           <img
             onClick={() =>
               setQuantity((prev) =>

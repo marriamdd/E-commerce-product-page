@@ -1,11 +1,19 @@
 import { useState } from "react";
 import styled from "styled-components";
+
 export default function CatalogComponent() {
   const bigImagesArray = [
     " /images/image-product-1.jpg",
     "/images/image-product-2.jpg",
     "/images/image-product-3.jpg",
     "/images/image-product-4.jpg",
+  ];
+
+  const smallImagesArray = [
+    " /images/image-product-1-thumbnail.jpg",
+    "/images/image-product-2-thumbnail.jpg",
+    "/images/image-product-3-thumbnail.jpg",
+    "/images/image-product-4-thumbnail.jpg",
   ];
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -42,18 +50,48 @@ export default function CatalogComponent() {
           </div>
         </div>
       </div>
+
+      <SelectContainer>
+        {smallImagesArray.map((item, index) => (
+          <img
+            onClick={() => setImageIndex(index)}
+            key={index}
+            src={item}
+            alt=""
+          />
+        ))}
+      </SelectContainer>
     </CatalogContainer>
   );
 }
+
+const SelectContainer = styled.div`
+  display: none;
+
+  @media screen and (min-width: 1000px) {
+    padding-top: 1rem;
+    display: flex;
+    gap: 3rem;
+    img {
+      border-radius: 10px;
+      width: 88px;
+      height: 88px;
+    }
+  }
+`;
 
 const CatalogContainer = styled.div`
   .swipeImagesDIv {
     position: relative;
   }
   .swipeImagesDIv img {
+    border-radius: 10px;
     width: 375px;
     height: 300px;
-    flex-shrink: 0;
+    @media screen and (min-width: 1000px) {
+      width: 445px;
+      height: 445px;
+    }
   }
 
   .arrowsDiv {
@@ -62,6 +100,9 @@ const CatalogContainer = styled.div`
     display: flex;
     padding-left: 2rem;
     gap: 27rem;
+    @media screen and (min-width: 1000px) {
+      display: none;
+    }
     .arrow_background {
       display: flex;
       align-items: center;

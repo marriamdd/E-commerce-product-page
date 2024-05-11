@@ -30,4 +30,9 @@ const MainComponent = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (min-width: 1000px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 7rem;
+  }
 `;
