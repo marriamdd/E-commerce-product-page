@@ -6,9 +6,16 @@ import { SomeContext } from "../App";
 import CartComponent from "./CartComponent";
 
 export default function Main() {
-  const { showCart } = useContext(SomeContext);
+  const { showCart, setShowCart } = useContext(SomeContext);
   return (
-    <MainComponent>
+    <MainComponent
+      onClick={(e) => {
+        const clickedElement = e.target as HTMLElement;
+        if (!clickedElement.closest(".cartDiv")) {
+          setShowCart(false);
+        }
+      }}
+    >
       {showCart && <CartComponent />}
       <CatalogComponent />
       <ContentContainer />

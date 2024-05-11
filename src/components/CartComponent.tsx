@@ -54,6 +54,10 @@ const CartContainer = styled.div`
 
   top: 7.5rem;
   z-index: 99999999999;
+  @media screen and (min-width: 700px) {
+    right: 5rem;
+    transform: right 1s;
+  }
   .cartDiv {
     width: 360px;
     height: 256px;

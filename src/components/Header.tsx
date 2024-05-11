@@ -169,7 +169,6 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
     @media screen and (min-width: 700px) {
       background-color: transparent;
       height: 70px;
-      width: 100%;
 
       flex-direction: row;
       justify-content: start;
