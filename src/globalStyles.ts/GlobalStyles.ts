@@ -12,7 +12,7 @@ html{
 body{
     font-family: "Kumbh Sans", sans-serif ;
     background: #FFF;
-  
+
   
 }
 li{

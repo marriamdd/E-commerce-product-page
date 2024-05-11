@@ -44,8 +44,8 @@ export default function Header() {
             <img src="/images/icon-close.svg" alt="close_icon" />
           </li>
 
-          {categoriesArray.map((item) => (
-            <li>{item}</li>
+          {categoriesArray.map((item, index) => (
+            <li key={index}>{item}</li>
           ))}
         </ul>
       </div>
