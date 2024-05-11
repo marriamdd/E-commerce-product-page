@@ -57,7 +57,8 @@ export default function CatalogComponent() {
             onClick={() => setImageIndex(index)}
             key={index}
             src={item}
-            alt=""
+            alt="product"
+            className={index == imageIndex ? "activeProduct" : ""}
           />
         ))}
       </SelectContainer>
@@ -76,6 +77,14 @@ const SelectContainer = styled.div`
       border-radius: 10px;
       width: 88px;
       height: 88px;
+      cursor: pointer;
+    }
+    img:hover {
+      opacity: 0.7;
+    }
+    .activeProduct {
+      opacity: 0.5;
+      border: 2px solid #ff7e1b;
     }
   }
 `;
@@ -91,6 +100,7 @@ const CatalogContainer = styled.div`
     @media screen and (min-width: 1000px) {
       width: 445px;
       height: 445px;
+      cursor: pointer;
     }
   }
 

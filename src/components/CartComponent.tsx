@@ -132,6 +132,7 @@ const CartContainer = styled.div`
     .bin {
       width: 14px;
       height: 16px;
+      cursor: pointer;
     }
   }
   .checkoutDiv {
@@ -144,6 +145,7 @@ const CartContainer = styled.div`
     background: #ff7e1b;
 
     & > span {
+      cursor: pointer;
       color: #fff;
       font-size: 16px;
       font-weight: 700;

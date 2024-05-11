@@ -123,6 +123,7 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
     .menu_icon {
       width: 1.6rem;
       height: 1.5rem;
+      cursor: pointer;
       @media screen and (min-width: 700px) {
         visibility: hidden;
       }
@@ -145,6 +146,7 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
   }
 
   .closeIcon {
+    cursor: pointer;
     visibility: ${(props) => (props.showCategories ? "visible" : "hidden")};
   }
   ul {
@@ -190,6 +192,7 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
       transition: padding-left 1s ease;
     }
     li:hover {
+      cursor: pointer;
       color: #ff7e1b;
       font-weight: 800;
       @media screen and (min-width: 700px) {

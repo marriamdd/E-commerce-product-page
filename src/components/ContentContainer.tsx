@@ -56,7 +56,7 @@ export default function ContentContainer() {
 }
 const AddTOCartContainer = styled.div`
   width: 100%;
-
+  cursor: pointer;
   padding-top: 0.5rem;
   padding-bottom: 4rem;
   display: flex;
@@ -76,6 +76,7 @@ const AddTOCartContainer = styled.div`
       width: 17.457px;
       height: 16px;
       fill: #fff;
+      cursor: pointer;
     }
     & > span {
       color: #fff;
@@ -103,11 +104,13 @@ const ChooseQuantity = styled.div`
       width: 12px;
       height: 3.332px;
       flex-shrink: 0;
+      cursor: pointer;
     }
     .plus {
       width: 12px;
       height: 12px;
       flex-shrink: 0;
+      cursor: pointer;
     }
   }
   div {
