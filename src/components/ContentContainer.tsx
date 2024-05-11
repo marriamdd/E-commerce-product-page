@@ -45,10 +45,43 @@ export default function ContentContainer() {
           />
         </div>
       </ChooseQuantity>
+      <AddTOCartContainer>
+        <div>
+          <img src="/images/icon-cart.svg" alt="cart" />
+          <span>Add to cart</span>
+        </div>
+      </AddTOCartContainer>
     </ContentWrapper>
   );
 }
-
+const AddTOCartContainer = styled.div`
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  div {
+    width: 327px;
+    height: 56px;
+    border-radius: 10px;
+    background: #ff7e1b;
+    box-shadow: 0px 20px 50px -20px #ff7e1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    & > img {
+      width: 17.457px;
+      height: 16px;
+      fill: #fff;
+    }
+    & > span {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+`;
 const ChooseQuantity = styled.div`
   width: 100%;
   padding-block: 1.2rem;
