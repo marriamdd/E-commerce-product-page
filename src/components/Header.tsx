@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { SomeContext } from "../App";
 
 export default function Header() {
   const [showCategories, setShowCategories] = useState(false);
@@ -15,6 +16,7 @@ export default function Header() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  const { quantity, setShowCart } = useContext(SomeContext);
   return (
     <HeaderContainer showCategories={showCategories}>
       <div className="logoDiv">
@@ -26,15 +28,7 @@ export default function Header() {
         />
         <img className="sneakers_icon" src="/images/sneakers 2.svg" alt="" />
       </div>
-      <div
-        className="categories_background_div"
-        onClick={(e) => {
-          const clickedElement = e.target as HTMLElement;
-          if (clickedElement.classList.contains("categories_background_div")) {
-            setShowCategories(!showCategories);
-          }
-        }}
-      >
+      <div className="categories_div">
         <ul>
           <li
             className="closeIcon"
@@ -48,9 +42,34 @@ export default function Header() {
             <li key={index}>{item}</li>
           ))}
         </ul>
+        <div
+          className="categories_background_div"
+          onClick={(e) => {
+            const clickedElement = e.target as HTMLElement;
+            if (
+              clickedElement.classList.contains("categories_background_div")
+            ) {
+              setShowCategories(!showCategories);
+            }
+          }}
+        ></div>
       </div>
-      <div className="cartDiv">
-        <img src="/images/icon-cart.svg" alt="cart_icon" />
+      <div className="cartContainer">
+        <div
+          onClick={() => {
+            setShowCart((prev) => !prev);
+          }}
+          className="cartIconsDiv"
+        >
+          {quantity > 0 && (
+            <div className="cartQuantityDiv">
+              {" "}
+              <span>{quantity}</span>
+            </div>
+          )}
+          <img src="/images/icon-cart.svg" alt="cart_icon" />
+        </div>
+
         <img src="/images/image-avatar.png" alt="avatar-img" />
       </div>
     </HeaderContainer>
@@ -60,17 +79,35 @@ export default function Header() {
 const HeaderContainer = styled.header<{ showCategories: boolean }>`
   width: 100%;
   height: 70px;
+  position: fixed;
+  top: 0;
+  z-index: 9999999;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-inline: 1rem;
+  .cartQuantityDiv {
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    width: 1.9rem;
+    height: 1.3rem;
+    border-radius: 6.5px;
+    background: #ff7e1b;
+    text-align: center;
+
+    & > span {
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+    }
+  }
   @media screen and (min-width: 750px) {
     padding-inline: 5rem;
     transition: padding-inline 2s ease;
   }
   .logoDiv {
-    visibility: ${(props) => (props.showCategories ? "hidden" : "visible")};
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -88,29 +125,34 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
       }
     }
   }
+
   .categories_background_div {
     opacity: 0.75;
     background: #000;
-    z-index: 99;
-    position: absolute;
+
+    position: fixed;
+    z-index: 9999;
     display: block;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    top: 50px;
+
     visibility: ${(props) => (props.showCategories ? "visible" : "hidden")};
   }
+
   .closeIcon {
     visibility: ${(props) => (props.showCategories ? "visible" : "hidden")};
   }
   ul {
-    background: #fff;
-
+    background: white;
     display: flex;
-    position: absolute;
-    z-index: 99999999;
-    top: -50px;
+    opacity: 1 !important;
+    position: fixed;
+    z-index: 99999999999;
+    top: 0;
     bottom: 0;
+    left: 0;
     width: 80%;
     flex-direction: column;
     visibility: ${(props) => (props.showCategories ? "visible" : "hidden")};
@@ -153,7 +195,8 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
       }
     }
   }
-  .cartDiv {
+  .cartContainer {
+    position: relative;
     display: flex;
     gap: 1rem;
     transition: gap 2s ease;
@@ -164,6 +207,7 @@ const HeaderContainer = styled.header<{ showCategories: boolean }>`
     img {
       width: 21.821px;
       height: 20px;
+      fill: #1d2026;
     }
   }
 `;

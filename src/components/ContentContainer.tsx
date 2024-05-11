@@ -47,7 +47,7 @@ export default function ContentContainer() {
       </ChooseQuantity>
       <AddTOCartContainer>
         <div>
-          <img src="/images/icon-cart.svg" alt="cart" />
+          <img className="cart" src="/images/icon-cart.svg" alt="cart" />
           <span>Add to cart</span>
         </div>
       </AddTOCartContainer>
@@ -56,10 +56,12 @@ export default function ContentContainer() {
 }
 const AddTOCartContainer = styled.div`
   width: 100%;
+
   padding-top: 0.5rem;
   padding-bottom: 4rem;
   display: flex;
   justify-content: center;
+
   div {
     width: 327px;
     height: 56px;
@@ -70,7 +72,7 @@ const AddTOCartContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    & > img {
+    .cart {
       width: 17.457px;
       height: 16px;
       fill: #fff;
@@ -116,8 +118,10 @@ const ChooseQuantity = styled.div`
   }
 `;
 const ContentWrapper = styled.div`
+  width: 327px;
   .descriptionsContainer {
-    padding: 1.5rem;
+    padding-block: 1.5rem;
+    padding-inline: 0;
     display: flex;
     flex-direction: column;
 
@@ -146,8 +150,6 @@ const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
 
-    padding-left: 2rem;
-    padding-right: 3rem;
     justify-content: space-between;
     .prevPrice {
       color: #b6bcc8;
