@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SomeContext } from "../App";
 
 export default function CartComponent() {
-  const { quantity } = useContext(SomeContext);
+  const { quantity, setQuantity } = useContext(SomeContext);
   return (
     <CartContainer>
       <div className="cartDiv">
@@ -32,7 +32,12 @@ export default function CartComponent() {
                   <span className="totalPrice">{`$${quantity * 125}`}</span>
                 </div>
               </div>
-              <img className="bin" src="public/images/Mask 2.svg" alt="bin" />
+              <img
+                onClick={() => setQuantity(0)}
+                className="bin"
+                src="public/images/Mask 2.svg"
+                alt="bin"
+              />
             </div>
             <div className="checkoutDiv">
               <span>Checkout</span>
