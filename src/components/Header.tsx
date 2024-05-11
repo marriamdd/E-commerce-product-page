@@ -22,7 +22,10 @@ export default function Header() {
       <div className="logoDiv">
         <img
           className="menu_icon"
-          onClick={() => setShowCategories(!showCategories)}
+          onClick={() => {
+            setShowCategories(!showCategories);
+            setShowCart(false);
+          }}
           src="/images/icon-menu.svg"
           alt="menu-icon"
         />
