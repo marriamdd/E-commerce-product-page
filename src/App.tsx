@@ -10,6 +10,8 @@ interface IE_ContextType {
   showCart: boolean;
   setShowZoom: React.Dispatch<React.SetStateAction<boolean>>;
   showZoom: boolean;
+  setImageIndex: React.Dispatch<React.SetStateAction<number>>;
+  imageIndex: number;
 }
 export const SomeContext = createContext<IE_ContextType>({
   setQuantity: () => {},
@@ -18,11 +20,14 @@ export const SomeContext = createContext<IE_ContextType>({
   showCart: false,
   setShowZoom: () => {},
   showZoom: false,
+  setImageIndex: () => {},
+  imageIndex: 0,
 });
 function App() {
   const [quantity, setQuantity] = useState(0);
   const [showCart, setShowCart] = useState(false);
   const [showZoom, setShowZoom] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
   return (
     <>
       <SomeContext.Provider
@@ -33,6 +38,8 @@ function App() {
           showCart,
           showZoom,
           setShowZoom,
+          imageIndex,
+          setImageIndex,
         }}
       >
         <GlobalStyle />

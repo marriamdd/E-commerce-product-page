@@ -1,14 +1,25 @@
 import styled from "styled-components";
 import CatalogComponent from "./CatalogComponent";
 import ContentContainer from "./ContentContainer";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SomeContext } from "../App";
 import CartComponent from "./CartComponent";
 import ZoomImage from "./ZoomImage";
 
 export default function Main() {
-  const { showCart, setShowCart, showZoom } = useContext(SomeContext);
-  console.log(showCart);
+  const { showCart, setShowCart, showZoom, setShowZoom } =
+    useContext(SomeContext);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1500) {
+        setShowZoom(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [showZoom]);
   return (
     <MainComponent
       onClick={(e) => {

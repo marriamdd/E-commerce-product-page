@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { SomeContext } from "../App";
+import ArrowsComponent from "./ArrowsComponent";
 
 export default function CatalogComponent() {
   const bigImagesArray = [
@@ -16,17 +17,18 @@ export default function CatalogComponent() {
     "/images/image-product-3-thumbnail.jpg",
     "/images/image-product-4-thumbnail.jpg",
   ];
-  const [imageIndex, setImageIndex] = useState(0);
-  const { setShowZoom, showZoom } = useContext(SomeContext);
+
+  const { setShowZoom, showZoom, setImageIndex, imageIndex } =
+    useContext(SomeContext);
   return (
-    <CatalogContainer>
+    <CatalogContainer showZoom={showZoom}>
       <div className="swipeImagesDIv">
         {bigImagesArray.map((item, index) => {
           if (index === imageIndex) {
             return (
               <img
                 onClick={() => {
-                  setShowZoom(!showZoom);
+                  setShowZoom(true);
                 }}
                 key={index}
                 src={item}
@@ -37,28 +39,7 @@ export default function CatalogComponent() {
           return null;
         })}
 
-        <div className="arrowsDiv">
-          <div
-            className="arrow_background"
-            onClick={() =>
-              setImageIndex((prev) =>
-                prev == 0 ? (prev = 0) : (prev = prev - 1)
-              )
-            }
-          >
-            <img src="/images/icon-previous.svg" alt="icon-previous" />
-          </div>
-          <div
-            className="arrow_background"
-            onClick={() =>
-              setImageIndex((prev) =>
-                prev == 3 ? (prev = 3) : (prev = prev + 1)
-              )
-            }
-          >
-            <img src="/images/icon-next.svg" alt="icon-next" />
-          </div>
-        </div>
+        <ArrowsComponent />
       </div>
 
       <SelectContainer>
@@ -82,6 +63,7 @@ const SelectContainer = styled.div`
   @media screen and (min-width: 1000px) {
     padding-top: 1rem;
     display: flex;
+    justify-content: center;
     gap: 3rem;
     img {
       border-radius: 10px;
@@ -93,13 +75,13 @@ const SelectContainer = styled.div`
       opacity: 0.7;
     }
     .activeProduct {
-      opacity: 0.5;
+      opacity: 0.3;
       border: 2px solid #ff7e1b;
     }
   }
 `;
 
-const CatalogContainer = styled.div`
+const CatalogContainer = styled.div<{ showZoom: boolean }>`
   .swipeImagesDIv {
     position: relative;
   }
@@ -110,32 +92,9 @@ const CatalogContainer = styled.div`
     @media screen and (min-width: 1000px) {
       width: 445px;
       height: 445px;
+      /* width: ${(props) => (props.showZoom ? "550px" : "445px")};
+      height: ${(props) => (props.showZoom ? "550px" : "445px")}; */
       cursor: pointer;
-    }
-  }
-
-  .arrowsDiv {
-    position: absolute;
-    top: 13.5rem;
-    display: flex;
-    padding-left: 2rem;
-    gap: 27rem;
-    @media screen and (min-width: 1000px) {
-      display: none;
-    }
-    .arrow_background {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-
-      background-color: white;
-      border-radius: 50%;
-    }
-    img {
-      width: 12px;
-      height: 12px;
     }
   }
 `;
