@@ -38,15 +38,7 @@ const ArrowsDiv = styled.div<{ showZoom: boolean }>`
     padding-left: 2rem;
     gap: 27rem;
   }
-  /* display: none; */
-  /* @media screen and (min-width: 1300px) {
-    display: ${(props) => (props.showZoom ? "flex" : "none")};
-    position: absolute;
-    top: 22rem;
-    padding-left: 0rem;
-    left: -2rem;
-    gap: 41rem;
-  } */
+
   .arrow_background {
     display: flex;
     align-items: center;

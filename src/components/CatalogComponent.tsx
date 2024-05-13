@@ -87,7 +87,6 @@ const CatalogContainer = styled.div<{ showZoom: boolean }>`
       display: none;
     }
     @media screen and (min-width: 1300px) {
-      /* display: ${(props) => (props.showZoom ? "flex" : "none")}; */
       position: absolute;
       top: 22rem;
       padding-left: 0rem;
