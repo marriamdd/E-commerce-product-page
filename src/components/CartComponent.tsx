@@ -38,7 +38,7 @@ export default function CartComponent() {
                   setShowQuantity(0);
                 }}
                 className="bin"
-                src="public/images/Mask 2.svg"
+                src="/images/Mask 2.svg"
                 alt="bin"
               />
             </div>
