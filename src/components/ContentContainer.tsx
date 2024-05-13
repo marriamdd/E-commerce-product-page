@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SomeContext } from "../App";
 
 export default function ContentContainer() {
-  const { setQuantity, quantity } = useContext(SomeContext);
+  const { setQuantity, quantity, setShowQuantity } = useContext(SomeContext);
   return (
     <ContentWrapper>
       <div className="descriptionsContainer">
@@ -47,7 +47,7 @@ export default function ContentContainer() {
           </div>
         </ChooseQuantity>
         <AddTOCartContainer>
-          <div>
+          <div onClick={() => setShowQuantity(quantity)}>
             <img className="cart" src="/images/icon-cart.svg" alt="cart" />
             <span>Add to cart</span>
           </div>

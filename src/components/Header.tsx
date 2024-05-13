@@ -16,7 +16,7 @@ export default function Header() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  const { quantity, setShowCart } = useContext(SomeContext);
+  const { setShowCart, showQuantity } = useContext(SomeContext);
   return (
     <HeaderContainer showCategories={showCategories}>
       <div className="logoDiv">
@@ -64,10 +64,10 @@ export default function Header() {
           }}
           className="cartIconsDiv"
         >
-          {quantity > 0 && (
+          {showQuantity > 0 && (
             <div className="cartQuantityDiv">
               {" "}
-              <span>{quantity}</span>
+              <span>{showQuantity}</span>
             </div>
           )}
           <img src="/images/icon-cart.svg" alt="cart_icon" />
