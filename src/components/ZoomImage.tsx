@@ -4,9 +4,9 @@ import { useContext } from "react";
 import { SomeContext } from "../App";
 
 export default function ZoomImage() {
-  const { setShowZoom } = useContext(SomeContext);
+  const { setShowZoom, showZoom } = useContext(SomeContext);
   return (
-    <ZoomContainer>
+    <ZoomContainer showZoom={showZoom}>
       <div onClick={() => setShowZoom(false)} className="background"></div>
 
       <div className="content">
@@ -21,7 +21,25 @@ export default function ZoomImage() {
     </ZoomContainer>
   );
 }
-const ZoomContainer = styled.div`
+const ZoomContainer = styled.div<{ showZoom: boolean }>`
+  .desktopArrowDiv {
+    @media screen and (min-width: 1300px) {
+      position: absolute;
+      top: 25rem;
+      display: flex;
+      padding-left: 0rem;
+      left: -2rem;
+      gap: 51rem;
+    }
+  }
+
+  .swipeImagesDIv img {
+    @media screen and (min-width: 1000px) {
+      width: ${(props) => (props.showZoom ? "550px" : "445px")};
+      height: ${(props) => (props.showZoom ? "550px" : "445px")};
+      cursor: pointer;
+    }
+  }
   display: none;
   @media screen and (min-width: 1300px) {
     position: relative;
@@ -38,7 +56,7 @@ const ZoomContainer = styled.div`
     }
     .content {
       position: absolute;
-      top: -33rem;
+      top: -36rem;
       left: 38rem;
       display: flex;
       flex-direction: column;

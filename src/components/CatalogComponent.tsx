@@ -82,6 +82,19 @@ const SelectContainer = styled.div`
 `;
 
 const CatalogContainer = styled.div<{ showZoom: boolean }>`
+  .desktopArrowDiv {
+    @media screen and (min-width: 987px) {
+      display: none;
+    }
+    @media screen and (min-width: 1300px) {
+      /* display: ${(props) => (props.showZoom ? "flex" : "none")}; */
+      position: absolute;
+      top: 22rem;
+      padding-left: 0rem;
+      left: -2rem;
+      gap: 41rem;
+    }
+  }
   .swipeImagesDIv {
     position: relative;
   }
@@ -92,8 +105,7 @@ const CatalogContainer = styled.div<{ showZoom: boolean }>`
     @media screen and (min-width: 1000px) {
       width: 445px;
       height: 445px;
-      /* width: ${(props) => (props.showZoom ? "550px" : "445px")};
-      height: ${(props) => (props.showZoom ? "550px" : "445px")}; */
+
       cursor: pointer;
     }
   }
