@@ -132,6 +132,9 @@ const ContentWrapper = styled.div`
   width: 327px;
   @media screen and (min-width: 1000px) {
     width: 445px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
   .buttonsContainer {
     @media screen and (min-width: 1000px) {
