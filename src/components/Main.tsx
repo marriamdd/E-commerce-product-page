@@ -49,5 +49,10 @@ const MainComponent = styled.main`
     flex-direction: row;
     justify-content: center;
     gap: 19rem;
+    transition: gap 1s ease-in-out;
+    @media screen and (min-width: 1000px) and (max-width: 1080px) {
+      transition: gap 1s ease-in-out;
+      gap: 11.5rem;
+    }
   }
 `;
