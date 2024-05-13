@@ -36,7 +36,7 @@ const ArrowsDiv = styled.div<{ showZoom: boolean }>`
     position: absolute;
     top: 13.5rem;
     padding-left: 2rem;
-    gap: 27rem;
+    gap: 26rem;
   }
 
   .arrow_background {
